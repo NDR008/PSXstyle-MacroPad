@@ -90,6 +90,6 @@ while True:
         macro.send(Keycode.F20)
         time.sleep(0.2)
     if not btn8.value:
-        # layout.write('Button8')
+        # layout.write("NDR008 was here! ")
         macro.send(Keycode.F21)
         time.sleep(0.2)

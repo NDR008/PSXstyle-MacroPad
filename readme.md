@@ -9,8 +9,11 @@ Each GPIO is set as a pull-up input, and each switch bridges said GPIO to ground
 Just for some instinctive fear of peak currents, I also added a 1kOhm resister between all the switches and the ground-pin.
 This is not strictly needed and may cause issues that I did not think of, but it works on my implementation.
 
+## Youtube Description (How I designed it / critic) 
+[![link](pics/youtube.png)](https://youtu.be/g2eIqAJCONk)
+
 ## Finished Goods
-![!FinishedCase](pics/done.jpg)
+![FinishedCase](pics/done.jpg)
   
 ## Wiring
-![!Wiring](pics/wiring.jpg)
+![Wiring](pics/wiring.jpg)

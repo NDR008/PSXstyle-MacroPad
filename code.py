@@ -7,13 +7,18 @@ import usb_hid
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
+from adafruit_hid.consumer_control import ConsumerControl
+from adafruit_hid.consumer_control_code import ConsumerControlCode
 
 import digitalio
 import board
+import neopixel
 
 macro = Keyboard(usb_hid.devices)
 layout = KeyboardLayoutUS(macro)
 
+pixel = neopixel.NeoPixel(board.GP16, 1)
+pixel.brightness = 1.0
 
 btn0_pin = board.GP0
 btn0 = digitalio.DigitalInOut(btn0_pin)
@@ -60,36 +65,77 @@ btn8 = digitalio.DigitalInOut(btn8_pin)
 btn8.direction = digitalio.Direction.INPUT
 btn8.pull = digitalio.Pull.UP
 
+cc = ConsumerControl(usb_hid.devices)
+
 time.sleep(1)
 
+mode2 = True
+counter = 0
 
+colT = (255, 255, 255)
+colF = (255, 10, 10)
+
+pixel[0] = colT
+pixel.write()
 
 while True:
-    if not btn0.value:
-        macro.send(Keycode.F13)
-        time.sleep(0.2)
-    if not btn1.value:
-        macro.send(Keycode.F14)
-        time.sleep(0.2)
-    if not btn2.value:
-        macro.send(Keycode.F15)
-        time.sleep(0.2)
-    if not btn3.value:
-        macro.send(Keycode.F16)
-        time.sleep(0.2)
-    if not btn4.value:
-        macro.send(Keycode.F17)
-        time.sleep(0.2)
-    if not btn5.value:
-        macro.send(Keycode.F18)
-        time.sleep(0.2)
-    if not btn6.value:
-        macro.send(Keycode.F19)
-        time.sleep(0.2)
-    if not btn7.value:
-        macro.send(Keycode.F20)
-        time.sleep(0.2)
-    if not btn8.value:
-        # layout.write("NDR008 was here! ")
-        macro.send(Keycode.F21)
-        time.sleep(0.2)
+    #pixel.fill((255, 0, 0))
+    if not btn1.value and not btn7.value:
+        counter = counter + 1
+        time.sleep(0.1)
+        if counter > 5:
+            mode2 = not mode2
+            counter = 0
+            if mode2:
+                pixel[0] = colT
+            else:
+                pixel[0] = colF
+            pixel.write()
+            time.sleep(0.3)
+
+    elif mode2:
+        if not btn0.value:
+            macro.send(Keycode.F13)
+            time.sleep(0.2)
+        if not btn1.value:
+            macro.send(Keycode.F14)
+            time.sleep(0.2)
+        if not btn2.value:
+            macro.send(Keycode.F15)
+            time.sleep(0.2)
+        if not btn3.value:
+            macro.send(Keycode.F16)
+            time.sleep(0.2)
+        if not btn4.value:
+            macro.send(Keycode.F17)
+            time.sleep(0.2)
+        if not btn5.value:
+            macro.send(Keycode.F18)
+            time.sleep(0.2)
+        if not btn6.value:
+            macro.send(Keycode.F19)
+            time.sleep(0.2)
+        if not btn7.value:
+            macro.send(Keycode.F20)
+            time.sleep(0.2)
+        if not btn8.value:
+            # layout.write("NDR008 was here! ")
+            macro.send(Keycode.F21)
+            time.sleep(0.2)
+
+    elif not mode2:
+        if not btn0.value:
+            layout.write("o_O")
+            time.sleep(0.2)
+        if not btn2.value:
+            layout.write("I got no clue about that")
+            time.sleep(0.2)
+        if not btn3.value:
+            layout.write("Please explain...")
+            time.sleep(0.2)
+        if not btn6.value:
+            layout.write("Who knows...")
+            time.sleep(0.2)
+        if not btn8.value:
+            layout.write("cool!")
+            time.sleep(0.2)

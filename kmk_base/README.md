@@ -6,4 +6,4 @@ Original full firmware here:
 [KMKfw](https://github.com/KMKfw/kmk_firmware)
 
 ## Youtube Demo Running KMK (the way to go!)
-[![link](pics/update.jpg)](https://youtu.be/dQYRVLhhxU4)
+[![link](../pics/update.jpg)](https://youtu.be/dQYRVLhhxU4)

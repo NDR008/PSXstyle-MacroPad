@@ -36,7 +36,7 @@ keyboard.keymap = [
 
     # Function Layer
     [
-        KC.S,  KC.W,  KC.T,
+        KC.Q,  KC.W,  KC.T,
         KC.A,  KC.S,  KC.D,
         KC.X, KC.TRNS, KC.O,
     ],

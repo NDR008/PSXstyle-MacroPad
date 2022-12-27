@@ -18,6 +18,9 @@ I adapted KMK firmware to work on this setup. To use it copy the contents of the
 ## Youtube Description (How I designed it / critic) 
 [![link](pics/youtube.png)](https://youtu.be/g2eIqAJCONk)
 
+## Youtube Demo Running KMK (the way to go!)
+[![link](pics/update.jpg)](https://youtu.be/dQYRVLhhxU4)
+
 ## Finished Goods
 ![FinishedCase](pics/done.jpg)
   

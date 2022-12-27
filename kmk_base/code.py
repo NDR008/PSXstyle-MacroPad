@@ -24,7 +24,7 @@ keyboard.keymap = [
     [
         KC.Q,  KC.W,  KC.R,
         KC.A,  KC.S,  KC.D,
-        KC.LEFT, KC.Z, KC.X,
+        KC.TRNS, KC.Z, KC.X,
     ],
 ]
 # fmt: on

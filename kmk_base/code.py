@@ -6,12 +6,14 @@ from kmk.keys import KC
 from kmk.handlers.sequences import send_string
 
 STRINGS = [
-            send_string("NDR008 - PSX, Cars and Pizza!"),
-            send_string("PSX lives forever"),
-            send_string("PCSX-Redux is a cool emulator"),
-            send_string("GRRRR"),
-            send_string("That's cool thanks!"),
-            send_string("That is awesome!")
+            send_string("NDR008 - PSX, Cars and Pizza!"), #0
+            send_string("PSX lives forever"), #1
+            send_string("PCSX-Redux is a cool emulator"), #2
+            send_string("GRRRR"), #3
+            send_string("That's cool thanks!"), #4
+            send_string("No idea what to say"), #5
+            send_string("No idea what to say"), #6
+            send_string("No idea what to say")  # 6
         ]
 
 from rp2040 import RP2040
@@ -46,12 +48,12 @@ keyboard.keymap = [
     [
         KC.Q,  KC.W,  KC.T,
         KC.A,  KC.S,  KC.N,
-        KC.LEFT, KC.TO(2), KC.RIGHT,
+        KC.X, KC.TO(2), KC.O,
     ],
     [
         STRINGS[0],  STRINGS[1],  STRINGS[2],
         STRINGS[3],  STRINGS[4],  STRINGS[5],
-        KC.LEFT, KC.TO(0), KC.RIGHT,
+        STRINGS[6], KC.TO(0), STRINGS[7],
     ],
 ]
 # fmt: on

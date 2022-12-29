@@ -28,12 +28,12 @@ keyboard.extensions.append(rgb)
 
 class Layers(_Layers):
     last_top_layer = 0
-    hues = ((255, 0, 0), (0, 0, 255), (0, 255, 0))
+    colour = ((255, 0, 0), (0, 0, 255), (0, 255, 0))
 
     def after_hid_send(self, keyboard):
         if keyboard.active_layers[0] != self.last_top_layer:
             self.last_top_layer = keyboard.active_layers[0]
-            rgb.set_rgb_fill(self.hues[self.last_top_layer])
+            rgb.set_rgb_fill(self.colour[self.last_top_layer])
 
 keyboard.modules.append(Layers())
 keyboard.keymap = [

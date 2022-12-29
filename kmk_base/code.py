@@ -13,7 +13,7 @@ STRINGS = [
             send_string("That's cool thanks!"), #4
             send_string("No idea what to say"), #5
             send_string("No idea what to say"), #6
-            send_string("No idea what to say")  # 6
+            send_string("No idea what to say")  #7
         ]
 
 from rp2040 import RP2040
